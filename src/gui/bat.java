@@ -42,7 +42,7 @@ public class bat extends JFrame {
                 frame.setVisible(true);
             }
         });
-        hornitzaileakikusi.setBounds(30, 109, 61, 43);
+        hornitzaileakikusi.setBounds(30, 161, 61, 43);
         contentPane.add(hornitzaileakikusi);
 
         JButton btnHornitzaileaBihurtu = new JButton("-");
@@ -55,7 +55,7 @@ public class bat extends JFrame {
                 deleteWindow.setVisible(true);
             }
         });
-        btnHornitzaileaBihurtu.setBounds(30, 251, 61, 43);
+        btnHornitzaileaBihurtu.setBounds(30, 263, 61, 43);
         contentPane.add(btnHornitzaileaBihurtu);
 
         JButton btnNewButton = new JButton("Editatu");
@@ -68,7 +68,7 @@ public class bat extends JFrame {
                 dispose();
             }
         });
-        btnNewButton.setBounds(30, 384, 75, 43);
+        btnNewButton.setBounds(30, 374, 75, 43);
         contentPane.add(btnNewButton);
 
         JPanel panel = new JPanel();
@@ -128,7 +128,7 @@ public class bat extends JFrame {
         contentPane.add(btnNewButton_2);
         
         JButton btnNewButton_3 = new JButton("Sortutako hondakinak");
-        btnNewButton_3.setBounds(76, 463, 207, 21);
+        btnNewButton_3.setBounds(10, 469, 188, 21);
         btnNewButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!textField.getText().trim().isEmpty()) {
@@ -139,6 +139,19 @@ public class bat extends JFrame {
             }
         });
         contentPane.add(btnNewButton_3);
+        
+        JButton btnNewButton_4 = new JButton("Arriskuak");
+        btnNewButton_4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	 if (!textField.getText().trim().isEmpty()) {
+                cargarDatosArriskuak();
+            } else {
+                JOptionPane.showMessageDialog(null, "Mesedez, idatzi makina baten izena lehenik.");
+            }
+            }
+        });
+        btnNewButton_4.setBounds(208, 469, 96, 21);
+        contentPane.add(btnNewButton_4);
 
         cargarDatos();
     }
@@ -180,6 +193,30 @@ public class bat extends JFrame {
             while (rs.next()) {
                 String azalpena = rs.getString("azalpena");
                 tableModel.addRow(new Object[]{azalpena});
+            }
+            table.setModel(tableModel);
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al cargar los datos: " + e.getMessage());
+        }
+    }
+
+    private void cargarDatosArriskuak() {
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM arriskuak");
+
+            tableModel = new DefaultTableModel(new String[]{"arriskuak"}, 0);
+            while (rs.next()) {
+                
+                String arriskuak = rs.getString("arriskuak");
+                
+                tableModel.addRow(new Object[]{arriskuak});
             }
             table.setModel(tableModel);
 
