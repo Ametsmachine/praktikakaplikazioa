@@ -96,7 +96,7 @@ public class bat extends JFrame {
 
         table = new JTable();
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(181, 191, 533, 262);
+        scrollPane.setBounds(181, 191, 533, 211);
         contentPane.add(scrollPane);
         
         JLabel lblNewLabel_1 = new JLabel("Idatzi makina:");
@@ -143,15 +143,28 @@ public class bat extends JFrame {
         JButton btnNewButton_4 = new JButton("Arriskuak");
         btnNewButton_4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	 if (!textField.getText().trim().isEmpty()) {
-                cargarDatosArriskuak();
-            } else {
-                JOptionPane.showMessageDialog(null, "Mesedez, idatzi makina baten izena lehenik.");
-            }
+                if (!textField.getText().trim().isEmpty()) {
+                    cargarDatosArriskuak();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mesedez, idatzi makina baten izena lehenik.");
+                }
             }
         });
         btnNewButton_4.setBounds(208, 469, 96, 21);
         contentPane.add(btnNewButton_4);
+        
+        JButton btnNewButton_5 = new JButton("Babeserako ekipoak");
+        btnNewButton_5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!textField.getText().trim().isEmpty()) {
+                    cargarDatosBabeserakoEkipoak();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mesedez, idatzi makina baten izena lehenik.");
+                }
+            }
+        });
+        btnNewButton_5.setBounds(317, 469, 154, 21);
+        contentPane.add(btnNewButton_5);
 
         cargarDatos();
     }
@@ -213,10 +226,30 @@ public class bat extends JFrame {
 
             tableModel = new DefaultTableModel(new String[]{"arriskuak"}, 0);
             while (rs.next()) {
-                
                 String arriskuak = rs.getString("arriskuak");
-                
                 tableModel.addRow(new Object[]{arriskuak});
+            }
+            table.setModel(tableModel);
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al cargar los datos: " + e.getMessage());
+        }
+    }
+
+    private void cargarDatosBabeserakoEkipoak() {
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM ekipoak");
+
+            tableModel = new DefaultTableModel(new String[]{"BabeserakoEkipoak"}, 0);
+            while (rs.next()) {
+                String BabeserakoEkipoak = rs.getString("BabeserakoEkipoak");
+                tableModel.addRow(new Object[]{BabeserakoEkipoak});
             }
             table.setModel(tableModel);
 
