@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 public class makinagehitu extends JFrame {
 
+	
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -22,9 +24,7 @@ public class makinagehitu extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public makinagehitu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 926, 893);
@@ -240,9 +240,9 @@ public class makinagehitu extends JFrame {
         btnNewButton_1.setBounds(26, 21, 85, 29);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                bat ventanaBat = new bat(); // Crear una instancia de la clase bat
-                ventanaBat.setVisible(true); // Mostrar la ventana bat
-                setVisible(false); // Opcional: ocultar la ventana actual
+                bat ventanaBat = new bat(); 
+                ventanaBat.setVisible(true); 
+                setVisible(false); 
             }
         });
         contentPane.add(btnNewButton_1);
