@@ -126,6 +126,19 @@ public class bat extends JFrame {
             }
         });
         contentPane.add(btnNewButton_2);
+        
+        JButton btnNewButton_3 = new JButton("Sortutako hondakinak");
+        btnNewButton_3.setBounds(76, 463, 207, 21);
+        btnNewButton_3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!textField.getText().trim().isEmpty()) {
+                    cargarDatosSortutakoHondakinak();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mesedez, idatzi makina baten izena lehenik.");
+                }
+            }
+        });
+        contentPane.add(btnNewButton_3);
 
         cargarDatos();
     }
@@ -145,6 +158,28 @@ public class bat extends JFrame {
                 String aktibozenbakia = rs.getString("aktibozenbakia");
                 String CEmarka = rs.getString("CEmarka");
                 tableModel.addRow(new Object[]{izena, marka, modeloa, kokapena, aktibozenbakia, CEmarka});
+            }
+            table.setModel(tableModel);
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al cargar los datos: " + e.getMessage());
+        }
+    }
+
+    private void cargarDatosSortutakoHondakinak() {
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM sortarazitakohondakinakk");
+
+            tableModel = new DefaultTableModel(new String[]{"azalpena"}, 0);
+            while (rs.next()) {
+                String azalpena = rs.getString("azalpena");
+                tableModel.addRow(new Object[]{azalpena});
             }
             table.setModel(tableModel);
 
