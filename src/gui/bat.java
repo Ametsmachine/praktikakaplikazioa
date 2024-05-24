@@ -96,12 +96,12 @@ public class bat extends JFrame {
 
         table = new JTable();
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(181, 191, 533, 211);
+        scrollPane.setBounds(153, 193, 533, 211);
         contentPane.add(scrollPane);
         
-        JLabel lblNewLabel_1 = new JLabel("Idatzi makina:");
+        JLabel lblNewLabel_1 = new JLabel("Makinaren izena:");
         lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 20));
-        lblNewLabel_1.setBounds(181, 119, 142, 27);
+        lblNewLabel_1.setBounds(145, 123, 185, 19);
         contentPane.add(lblNewLabel_1);
         
         textField = new JTextField();
@@ -128,7 +128,7 @@ public class bat extends JFrame {
         contentPane.add(btnNewButton_2);
         
         JButton btnNewButton_3 = new JButton("Sortutako hondakinak");
-        btnNewButton_3.setBounds(10, 469, 188, 21);
+        btnNewButton_3.setBounds(80, 433, 188, 21);
         btnNewButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!textField.getText().trim().isEmpty()) {
@@ -150,7 +150,7 @@ public class bat extends JFrame {
                 }
             }
         });
-        btnNewButton_4.setBounds(208, 469, 96, 21);
+        btnNewButton_4.setBounds(295, 433, 96, 21);
         contentPane.add(btnNewButton_4);
         
         JButton btnNewButton_5 = new JButton("Babeserako ekipoak");
@@ -163,8 +163,21 @@ public class bat extends JFrame {
                 }
             }
         });
-        btnNewButton_5.setBounds(317, 469, 154, 21);
+        btnNewButton_5.setBounds(416, 433, 154, 21);
         contentPane.add(btnNewButton_5);
+        
+        JButton btnNewButton_6 = new JButton("Produktu kimikoak");
+        btnNewButton_6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!textField.getText().trim().isEmpty()) {
+                    cargarDatosProduktuKimikoak();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mesedez, idatzi makina baten izena lehenik.");
+                }
+            }
+        });
+        btnNewButton_6.setBounds(593, 433, 121, 21);
+        contentPane.add(btnNewButton_6);
 
         cargarDatos();
     }
@@ -262,6 +275,28 @@ public class bat extends JFrame {
         }
     }
 
+    private void cargarDatosProduktuKimikoak() {
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM produktukimikoak");
+
+            tableModel = new DefaultTableModel(new String[]{"Produktukimikoa"}, 0);
+            while (rs.next()) {
+                String Produktukimikoa= rs.getString("Produktukimikoa");
+                tableModel.addRow(new Object[]{Produktukimikoa});
+            }
+            table.setModel(tableModel);
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al cargar los datos: " + e.getMessage());
+        }
+    }
+
     private void searchMakina() {
         String makinaIzena = textField.getText();
         if (makinaIzena.isEmpty()) {
@@ -306,3 +341,4 @@ public class bat extends JFrame {
         return null;
     }
 }
+
