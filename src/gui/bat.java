@@ -68,7 +68,7 @@ public class bat extends JFrame {
                 dispose();
             }
         });
-        btnNewButton.setBounds(30, 374, 75, 43);
+        btnNewButton.setBounds(30, 362, 75, 43);
         contentPane.add(btnNewButton);
 
         JPanel panel = new JPanel();
@@ -128,7 +128,7 @@ public class bat extends JFrame {
         contentPane.add(btnNewButton_2);
         
         JButton btnNewButton_3 = new JButton("Sortutako hondakinak");
-        btnNewButton_3.setBounds(80, 433, 188, 21);
+        btnNewButton_3.setBounds(68, 433, 188, 21);
         btnNewButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!textField.getText().trim().isEmpty()) {
@@ -150,7 +150,7 @@ public class bat extends JFrame {
                 }
             }
         });
-        btnNewButton_4.setBounds(295, 433, 96, 21);
+        btnNewButton_4.setBounds(276, 433, 96, 21);
         contentPane.add(btnNewButton_4);
         
         JButton btnNewButton_5 = new JButton("Babeserako ekipoak");
@@ -163,7 +163,7 @@ public class bat extends JFrame {
                 }
             }
         });
-        btnNewButton_5.setBounds(416, 433, 154, 21);
+        btnNewButton_5.setBounds(394, 433, 154, 21);
         contentPane.add(btnNewButton_5);
         
         JButton btnNewButton_6 = new JButton("Produktu kimikoak");
@@ -176,7 +176,7 @@ public class bat extends JFrame {
                 }
             }
         });
-        btnNewButton_6.setBounds(593, 433, 121, 21);
+        btnNewButton_6.setBounds(558, 433, 145, 21);
         contentPane.add(btnNewButton_6);
 
         cargarDatos();
@@ -215,7 +215,7 @@ public class bat extends JFrame {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM sortarazitakohondakinakk");
 
-            tableModel = new DefaultTableModel(new String[]{"azalpena"}, 0);
+            tableModel = new DefaultTableModel(new String[]{"Hondakinak"}, 0);
             while (rs.next()) {
                 String azalpena = rs.getString("azalpena");
                 tableModel.addRow(new Object[]{azalpena});
@@ -237,7 +237,7 @@ public class bat extends JFrame {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM arriskuak");
 
-            tableModel = new DefaultTableModel(new String[]{"arriskuak"}, 0);
+            tableModel = new DefaultTableModel(new String[]{"Arriskuak"}, 0);
             while (rs.next()) {
                 String arriskuak = rs.getString("arriskuak");
                 tableModel.addRow(new Object[]{arriskuak});
@@ -259,7 +259,7 @@ public class bat extends JFrame {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM ekipoak");
 
-            tableModel = new DefaultTableModel(new String[]{"BabeserakoEkipoak"}, 0);
+            tableModel = new DefaultTableModel(new String[]{"Babeserako Ekipoak"}, 0);
             while (rs.next()) {
                 String BabeserakoEkipoak = rs.getString("BabeserakoEkipoak");
                 tableModel.addRow(new Object[]{BabeserakoEkipoak});
@@ -330,7 +330,7 @@ public class bat extends JFrame {
     }
 
     private Connection getConnection() throws Exception {
-        String url = "jdbc:mysql://localhost:3306/praktikak";
+        String url = "jdbc:mysql://localhost:3306/praktikakk";
         String user = "root";
         String password = "1WMG2023";
         return DriverManager.getConnection(url, user, password);

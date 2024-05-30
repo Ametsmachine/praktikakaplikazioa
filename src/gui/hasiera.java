@@ -63,7 +63,7 @@ public class hasiera extends JFrame {
 
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/praktikak", "root", "1WMG2023");
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/praktikakk", "root", "1WMG2023");
                     Statement statement = connection.createStatement();
                     ResultSet rs = statement.executeQuery("SELECT * FROM erabiltzaileak WHERE izena='" + username + "' AND NAN='" + password + "'");
                     if (rs.next()) {

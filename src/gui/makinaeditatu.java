@@ -10,99 +10,103 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 public class makinaeditatu extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+    private JPanel contentPane;
+    private JTextField textField;
+    private JTextField textField_1;
+    private JTextField textField_2;
+    private JTextField textField_3;
+    private JTextField textField_4;
+    private JTextField textField_5;
 
-	/**
-	 * Create the frame.
-	 */
-	public makinaeditatu() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 926, 893);
-		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+    /**
+     * Create the frame.
+     */
+    public makinaeditatu() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 926, 893);
+        contentPane = new JPanel();
+        contentPane.setBackground(SystemColor.activeCaption);
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("Markaren izendapena:");
-		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(36, 106, 176, 13);
-		contentPane.add(lblNewLabel_1);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(336, 21, 234, 44);
-		panel.setBackground(new Color(255, 228, 181));
-		contentPane.add(panel);
-		
-		JLabel lblNewLabel = new JLabel("Makina gehitu");
-		panel.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 28));
-		
-		textField = new JTextField();
-		textField.setBounds(222, 105, 128, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Marka:");
-		lblNewLabel_1_1.setFont(new Font("Arial", Font.BOLD, 16));
-		lblNewLabel_1_1.setBounds(36, 150, 176, 13);
-		contentPane.add(lblNewLabel_1_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(100, 149, 96, 19);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Modeloa:");
-		lblNewLabel_1_2.setFont(new Font("Arial", Font.BOLD, 16));
-		lblNewLabel_1_2.setBounds(36, 195, 176, 13);
-		contentPane.add(lblNewLabel_1_2);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(128, 194, 96, 19);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblNewLabel_1_3 = new JLabel("Kokapena:");
-		lblNewLabel_1_3.setFont(new Font("Arial", Font.BOLD, 16));
-		lblNewLabel_1_3.setBounds(36, 241, 122, 13);
-		contentPane.add(lblNewLabel_1_3);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(146, 240, 96, 19);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
-		
-		textField_4 = new JTextField();
-		textField_4.setBounds(176, 284, 96, 19);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
-		
-		JLabel lblNewLabel_1_4 = new JLabel("Aktibo zenbakia:");
-		lblNewLabel_1_4.setFont(new Font("Arial", Font.BOLD, 16));
-		lblNewLabel_1_4.setBounds(36, 285, 176, 13);
-		contentPane.add(lblNewLabel_1_4);
-		
-		JLabel lblNewLabel_1_4_1 = new JLabel("CE marka (Bai/Ez):");
-		lblNewLabel_1_4_1.setFont(new Font("Arial", Font.BOLD, 16));
-		lblNewLabel_1_4_1.setBounds(36, 331, 176, 13);
-		contentPane.add(lblNewLabel_1_4_1);
-		
-		textField_5 = new JTextField();
-		textField_5.setBounds(200, 330, 96, 19);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        
+        JLabel lblNewLabel_1 = new JLabel("Markaren izendapena:");
+        lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 16));
+        lblNewLabel_1.setBounds(36, 106, 176, 13);
+        contentPane.add(lblNewLabel_1);
+        
+        JPanel panel = new JPanel();
+        panel.setBounds(336, 21, 234, 44);
+        panel.setBackground(new Color(255, 228, 181));
+        contentPane.add(panel);
+        
+        JLabel lblNewLabel = new JLabel("Makina gehitu");
+        panel.add(lblNewLabel);
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 28));
+        
+        textField = new JTextField();
+        textField.setBounds(222, 105, 128, 19);
+        contentPane.add(textField);
+        textField.setColumns(10);
+        
+        JLabel lblNewLabel_1_1 = new JLabel("Marka:");
+        lblNewLabel_1_1.setFont(new Font("Arial", Font.BOLD, 16));
+        lblNewLabel_1_1.setBounds(36, 150, 176, 13);
+        contentPane.add(lblNewLabel_1_1);
+        
+        textField_1 = new JTextField();
+        textField_1.setBounds(100, 149, 96, 19);
+        contentPane.add(textField_1);
+        textField_1.setColumns(10);
+        
+        JLabel lblNewLabel_1_2 = new JLabel("Modeloa:");
+        lblNewLabel_1_2.setFont(new Font("Arial", Font.BOLD, 16));
+        lblNewLabel_1_2.setBounds(36, 195, 176, 13);
+        contentPane.add(lblNewLabel_1_2);
+        
+        textField_2 = new JTextField();
+        textField_2.setBounds(128, 194, 96, 19);
+        contentPane.add(textField_2);
+        textField_2.setColumns(10);
+        
+        JLabel lblNewLabel_1_3 = new JLabel("Kokapena:");
+        lblNewLabel_1_3.setFont(new Font("Arial", Font.BOLD, 16));
+        lblNewLabel_1_3.setBounds(36, 241, 122, 13);
+        contentPane.add(lblNewLabel_1_3);
+        
+        textField_3 = new JTextField();
+        textField_3.setBounds(146, 240, 96, 19);
+        contentPane.add(textField_3);
+        textField_3.setColumns(10);
+        
+        textField_4 = new JTextField();
+        textField_4.setBounds(176, 284, 96, 19);
+        contentPane.add(textField_4);
+        textField_4.setColumns(10);
+        
+        JLabel lblNewLabel_1_4 = new JLabel("Aktibo zenbakia:");
+        lblNewLabel_1_4.setFont(new Font("Arial", Font.BOLD, 16));
+        lblNewLabel_1_4.setBounds(36, 285, 176, 13);
+        contentPane.add(lblNewLabel_1_4);
+        
+        JLabel lblNewLabel_1_4_1 = new JLabel("CE marka (Bai/Ez):");
+        lblNewLabel_1_4_1.setFont(new Font("Arial", Font.BOLD, 16));
+        lblNewLabel_1_4_1.setBounds(36, 331, 176, 13);
+        contentPane.add(lblNewLabel_1_4_1);
+        
+        textField_5 = new JTextField();
+        textField_5.setBounds(200, 330, 96, 19);
+        contentPane.add(textField_5);
+        textField_5.setColumns(10);
+
+        
         
         JLabel lblNewLabel_1_4_1_1 = new JLabel("Produktu kimikoak:");
         lblNewLabel_1_4_1_1.setFont(new Font("Arial", Font.BOLD, 20));
