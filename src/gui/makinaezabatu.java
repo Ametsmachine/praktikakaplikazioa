@@ -79,7 +79,7 @@ public class makinaezabatu extends JFrame {
         DefaultTableModel model = new DefaultTableModel(new String[]{"Izena", "Marka", "Modeloa", "Kokapena", "Aktibozenbakia", "CEmarka"}, 0);
         table.setModel(model);
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/praktikakk", "root", "1WMG2023");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erronkaerrekuperazioa", "root", "1WMG2023");
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT izena, marka, modeloa, kokapena, aktibozenbakia, CEmarka FROM makina")) {
 
@@ -104,13 +104,40 @@ public class makinaezabatu extends JFrame {
             return;
         }
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/praktikakk", "root", "1WMG2023");
-             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM makina WHERE izena = ?")) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
 
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erronkaerrekuperazioa", "root", "1WMG2023");
+            conn.setAutoCommit(false);
+
+            String selectMachineIdSql = "SELECT id_makina FROM makina WHERE izena = ?";
+            pstmt = conn.prepareStatement(selectMachineIdSql);
             pstmt.setString(1, machineName);
-            int rowsAffected = pstmt.executeUpdate();
-            
-            if (rowsAffected > 0) {
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                int makinaId = rs.getInt("id_makina");
+
+                String deleteMakinenArriskuakSql = "DELETE FROM makinenarriskuak WHERE makina_id_makina = ?";
+                executeDelete(conn, deleteMakinenArriskuakSql, makinaId);
+
+                String deleteMakinenProduktukimikoakSql = "DELETE FROM makinenproduktukimikoak WHERE makina_id_makina = ?";
+                executeDelete(conn, deleteMakinenProduktukimikoakSql, makinaId);
+
+                String deleteMakinenEkipoakSql = "DELETE FROM makinenekipoak WHERE makina_id_makina = ?";
+                executeDelete(conn, deleteMakinenEkipoakSql, makinaId);
+
+                String deleteMakinenHondakinakSql = "DELETE FROM makinenhondakinak WHERE makina_id_makina = ?";
+                executeDelete(conn, deleteMakinenHondakinakSql, makinaId);
+
+                String deleteMakinenAtalakSql = "DELETE FROM makinenatalak WHERE makina_id_makina = ?";
+                executeDelete(conn, deleteMakinenAtalakSql, makinaId);
+
+                String deleteMachineSql = "DELETE FROM makina WHERE id_makina = ?";
+                executeDelete(conn, deleteMachineSql, makinaId);
+
+                conn.commit();
                 JOptionPane.showMessageDialog(this, "Makina ezabatua izan da", "Arrakasta", JOptionPane.INFORMATION_MESSAGE);
                 loadTableData();  // Refresh the table data
             } else {
@@ -118,21 +145,27 @@ public class makinaezabatu extends JFrame {
             }
 
         } catch (SQLException ex) {
+            try {
+                if (conn != null) conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Errorea datu basearekin konektatzerakoan", "Errorea", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    makinaezabatu frame = new makinaezabatu();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+    private void executeDelete(Connection conn, String sql, int makinaId) throws SQLException {
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, makinaId);
+            pstmt.executeUpdate();
+        }
     }
 }

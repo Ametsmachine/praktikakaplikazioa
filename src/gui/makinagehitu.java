@@ -10,12 +10,15 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class makinagehitu extends JFrame {
 
@@ -27,6 +30,29 @@ public class makinagehitu extends JFrame {
     private JTextField textField_3;
     private JTextField textField_4;
     private JTextField textField_5;
+    private JCheckBox chckbxNewCheckBox;
+    private JCheckBox chckbxNewCheckBox_1;
+    private JCheckBox chckbxNewCheckBox_2;
+    private JCheckBox chckbxNewCheckBox_3;
+    private JCheckBox chckbxNewCheckBox_4;
+    private JCheckBox chckbxNewCheckBox_5;
+    private JCheckBox chckbxNewCheckBox_6;
+    private JCheckBox chckbxNewCheckBox_7;
+    private JCheckBox chckbxNewCheckBox_8;
+    private JCheckBox chckbxNewCheckBox_9;
+    private JCheckBox chckbxNewCheckBox_10;
+    private JCheckBox chckbxNewCheckBox_11;
+    private JCheckBox chckbxNewCheckBox_12;
+    private JCheckBox chckbxNewCheckBox_13;
+    private JCheckBox chckbxNewCheckBox_14;
+    private JCheckBox chckbxNewCheckBox_15;
+    private JCheckBox chckbxNewCheckBox_16;
+    private JCheckBox chckbxNewCheckBox_17;
+    private JCheckBox chckbxNewCheckBox_18;
+    private JCheckBox chckbxNewCheckBox_19;
+    private JCheckBox chckbxNewCheckBox_20;
+    private JCheckBox chckbxNewCheckBox_21;
+    private JCheckBox chckbxNewCheckBox_22;
 
     public makinagehitu() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,153 +128,188 @@ public class makinagehitu extends JFrame {
         lblNewLabel_1_4_1.setBounds(36, 331, 176, 13);
         contentPane.add(lblNewLabel_1_4_1);
 
-        JButton btnSave = new JButton("Gorde");
-        btnSave.setBounds(753, 518, 100, 30);
-        contentPane.add(btnSave);
-        
         textField_5 = new JTextField();
         textField_5.setBounds(208, 330, 96, 19);
         contentPane.add(textField_5);
         textField_5.setColumns(10);
+
         JLabel lblNewLabel_1_4_1_1 = new JLabel("Produktu kimikoak:");
         lblNewLabel_1_4_1_1.setFont(new Font("Arial", Font.BOLD, 20));
         lblNewLabel_1_4_1_1.setBounds(36, 385, 206, 19);
         contentPane.add(lblNewLabel_1_4_1_1);
-        
-        JCheckBox chckbxNewCheckBox = new JCheckBox(" Mikrolubrikaziorako olioa: LUBRI FLUID   (HRE HIDRAULIC)");
+
+        chckbxNewCheckBox = new JCheckBox("Mikrolubrikaziorako olioa: LUBRI FLUID (HRE HIDRAULIC)");
         chckbxNewCheckBox.setBackground(SystemColor.activeCaption);
         chckbxNewCheckBox.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox.setBounds(36, 431, 434, 21);
         contentPane.add(chckbxNewCheckBox);
-        
-        JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Gidak eta elementuak labaintzeko olioa:DROSERA MS 68  (TOTAL ESPAÑA)\r\n");
+
+        chckbxNewCheckBox_1 = new JCheckBox("Gidak eta elementuak labaintzeko olioa: DROSERA MS 68 (TOTAL ESPAÑA)");
         chckbxNewCheckBox_1.setBackground(SystemColor.activeCaption);
         chckbxNewCheckBox_1.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_1.setBounds(36, 470, 464, 21);
         contentPane.add(chckbxNewCheckBox_1);
-        
-        JCheckBox chckbxNewCheckBox_2 = new JCheckBox(" Abiadura eta aitzinapen kaxarako olioa:AZOLLA ZS 68 (TOTAL ESPAÑA)");
+
+        chckbxNewCheckBox_2 = new JCheckBox("Abiadura eta aitzinapen kaxarako olioa: AZOLLA ZS 68 (TOTAL ESPAÑA)");
         chckbxNewCheckBox_2.setBackground(SystemColor.activeCaption);
         chckbxNewCheckBox_2.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_2.setBounds(36, 508, 440, 21);
         contentPane.add(chckbxNewCheckBox_2);
-        
+
         JLabel lblNewLabel_1_4_1_1_1 = new JLabel("Arriskuak:");
         lblNewLabel_1_4_1_1_1.setFont(new Font("Arial", Font.BOLD, 20));
         lblNewLabel_1_4_1_1_1.setBounds(36, 555, 206, 19);
         contentPane.add(lblNewLabel_1_4_1_1_1);
-        
-        JCheckBox chckbxNewCheckBox_3 = new JCheckBox("Soinean dugun zerbait,  makinaren mugitzenari  \r\nden atalen batean korapilatzea:mahukak, lepokoak, hilea …");
+
+        chckbxNewCheckBox_3 = new JCheckBox("Soinean dugun zerbait, makinaren mugitzenari den atalen batean korapilatzea: mahukak, lepokoak, hilea …");
         chckbxNewCheckBox_3.setBackground(SystemColor.activeCaption);
         chckbxNewCheckBox_3.setFont(new Font("Arial", Font.BOLD, 11));
         chckbxNewCheckBox_3.setBounds(36, 590, 625, 29);
         contentPane.add(chckbxNewCheckBox_3);
-        
-        JCheckBox chckbxNewCheckBox_4 = new JCheckBox("Piezen bizarrekin, hertz biziekin, kutxilekin… ebakiak egiteko arriskua.");
+
+        chckbxNewCheckBox_4 = new JCheckBox("Piezen bizarrekin, hertz biziekin, kutxilekin… ebakiak egiteko arriskua.");
         chckbxNewCheckBox_4.setBackground(SystemColor.activeCaption);
         chckbxNewCheckBox_4.setFont(new Font("Arial", Font.BOLD, 11));
         chckbxNewCheckBox_4.setBounds(36, 621, 362, 21);
         contentPane.add(chckbxNewCheckBox_4);
-        
-        JCheckBox chckbxNewCheckBox_5 = new JCheckBox("Irrist egitea lurrean egon daiteken olioarekin");
+
+        chckbxNewCheckBox_5 = new JCheckBox("Irrist egitea lurrean egon daiteken olioarekin");
         chckbxNewCheckBox_5.setBackground(SystemColor.activeCaption);
         chckbxNewCheckBox_5.setFont(new Font("Arial", Font.BOLD, 11));
         chckbxNewCheckBox_5.setBounds(36, 651, 452, 21);
         contentPane.add(chckbxNewCheckBox_5);
-        
-        JLabel lblNewLabel_1_4_1_1_1_1 = new JLabel(" Norberaren babeserako ekipoak:");
+
+        JLabel lblNewLabel_1_4_1_1_1_1 = new JLabel("Norberaren babeserako ekipoak:");
         lblNewLabel_1_4_1_1_1_1.setFont(new Font("Arial", Font.BOLD, 20));
-        lblNewLabel_1_4_1_1_1_1.setBounds(549, 125, 377, 19);
+        lblNewLabel_1_4_1_1_1_1.setBounds(465, 253, 376, 19);
         contentPane.add(lblNewLabel_1_4_1_1_1_1);
-        
-        JCheckBox chckbxNewCheckBox_6 = new JCheckBox("Betaurrekoak");
-        chckbxNewCheckBox_6.setFont(new Font("Arial", Font.BOLD, 14));
+
+        chckbxNewCheckBox_6 = new JCheckBox("Betaurrekoak");
+        chckbxNewCheckBox_6.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_6.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_6.setBounds(561, 150, 156, 21);
+        chckbxNewCheckBox_6.setBounds(465, 283, 150, 21);
         contentPane.add(chckbxNewCheckBox_6);
-        
-        JCheckBox chckbxNewCheckBox_7 = new JCheckBox("Altzairuzko punta duen segurtasun botak.");
-        chckbxNewCheckBox_7.setFont(new Font("Arial", Font.BOLD, 14));
+
+        chckbxNewCheckBox_7 = new JCheckBox("Altzairuzko punta duen segurtasun botak.");
+        chckbxNewCheckBox_7.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_7.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_7.setBounds(561, 173, 341, 21);
+        chckbxNewCheckBox_7.setBounds(465, 306, 300, 21);
         contentPane.add(chckbxNewCheckBox_7);
-        
-        JCheckBox chckbxNewCheckBox_8 = new JCheckBox("Txaketa, buzoa edo bata.");
-        chckbxNewCheckBox_8.setFont(new Font("Arial", Font.BOLD, 14));
+
+        chckbxNewCheckBox_8 = new JCheckBox("Txaketa, buzoa edo bata.");
+        chckbxNewCheckBox_8.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_8.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_8.setBounds(561, 192, 243, 21);
+        chckbxNewCheckBox_8.setBounds(465, 329, 200, 21);
         contentPane.add(chckbxNewCheckBox_8);
-        
-        JCheckBox chckbxNewCheckBox_9 = new JCheckBox("Eskularruak");
+
+        chckbxNewCheckBox_9 = new JCheckBox("Eskularruak");
+        chckbxNewCheckBox_9.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_9.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_9.setFont(new Font("Arial", Font.BOLD, 14));
-        chckbxNewCheckBox_9.setBounds(561, 215, 122, 21);
+        chckbxNewCheckBox_9.setBounds(465, 352, 200, 21);
         contentPane.add(chckbxNewCheckBox_9);
-        
+
         JLabel lblNewLabel_1_4_1_1_1_1_1 = new JLabel("Sortarazitako hondakinak:");
         lblNewLabel_1_4_1_1_1_1_1.setFont(new Font("Arial", Font.BOLD, 20));
-        lblNewLabel_1_4_1_1_1_1_1.setBounds(561, 281, 377, 19);
+        lblNewLabel_1_4_1_1_1_1_1.setBounds(465, 102, 376, 19);
         contentPane.add(lblNewLabel_1_4_1_1_1_1_1);
         
-        JCheckBox chckbxNewCheckBox_10 = new JCheckBox("Altzairuzko eta aluminiozko totxoak");
+        chckbxNewCheckBox_10 = new JCheckBox("Altzairuzko eta aluminiozko totxoak");
+        chckbxNewCheckBox_10.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_10.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_10.setFont(new Font("Arial", Font.BOLD, 14));
-        chckbxNewCheckBox_10.setBounds(561, 306, 311, 21);
+        chckbxNewCheckBox_10.setBounds(465, 127, 239, 21);
         contentPane.add(chckbxNewCheckBox_10);
         
-        JCheckBox chckbxNewCheckBox_11 = new JCheckBox("Txirbila: Altzairua, Aluminioa.");
+        chckbxNewCheckBox_11 = new JCheckBox("Txirbila: Altzairua, Aluminioa");
+        chckbxNewCheckBox_11.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_11.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_11.setFont(new Font("Arial", Font.BOLD, 14));
-        chckbxNewCheckBox_11.setBounds(561, 331, 311, 21);
+        chckbxNewCheckBox_11.setBounds(465, 148, 223, 21);
         contentPane.add(chckbxNewCheckBox_11);
         
-        JCheckBox chckbxNewCheckBox_12 = new JCheckBox("Metal gogorrezko plakatxoa hondatuak");
+        chckbxNewCheckBox_12 = new JCheckBox("Metal gogorrezko plakatxoa hondatuak");
+        chckbxNewCheckBox_12.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_12.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_12.setFont(new Font("Arial", Font.BOLD, 14));
-        chckbxNewCheckBox_12.setBounds(561, 354, 311, 21);
+        chckbxNewCheckBox_12.setBounds(465, 171, 285, 21);
         contentPane.add(chckbxNewCheckBox_12);
         
-        JCheckBox chckbxNewCheckBox_13 = new JCheckBox("Altzairu lasterreko erreminta hondatuak");
+        chckbxNewCheckBox_13 = new JCheckBox("Altzairu lasterreko erreminta hondatuak");
+        chckbxNewCheckBox_13.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_13.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_13.setFont(new Font("Arial", Font.BOLD, 14));
-        chckbxNewCheckBox_13.setBounds(561, 377, 311, 21);
+        chckbxNewCheckBox_13.setBounds(465, 193, 261, 21);
         contentPane.add(chckbxNewCheckBox_13);
         
-        JCheckBox chckbxNewCheckBox_14 = new JCheckBox("Olioa");
-        chckbxNewCheckBox_14.setFont(new Font("Arial", Font.BOLD, 14));
+        chckbxNewCheckBox_14 = new JCheckBox("Olioa");
+        chckbxNewCheckBox_14.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_14.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_14.setBounds(561, 400, 93, 21);
+        chckbxNewCheckBox_14.setBounds(465, 216, 285, 21);
         contentPane.add(chckbxNewCheckBox_14);
+
+        JLabel lblNewLabel_1_4_1_1_1_2 = new JLabel("Makinaren Atalak:");
+        lblNewLabel_1_4_1_1_1_2.setFont(new Font("Arial", Font.BOLD, 20));
+        lblNewLabel_1_4_1_1_1_2.setBounds(526, 391, 376, 19);
+        contentPane.add(lblNewLabel_1_4_1_1_1_2);
         
-        JLabel lblNewLabel_1_4_1_1_1_1_1_1 = new JLabel("Makinaren atalak:");
-        lblNewLabel_1_4_1_1_1_1_1_1.setFont(new Font("Arial", Font.BOLD, 20));
-        lblNewLabel_1_4_1_1_1_1_1_1.setBounds(561, 468, 377, 19);
-        contentPane.add(lblNewLabel_1_4_1_1_1_1_1_1);
-        
-        JCheckBox chckbxNewCheckBox_15 = new JCheckBox("F-eko makinen piezak");
+        chckbxNewCheckBox_15 = new JCheckBox("Gorputza");
+        chckbxNewCheckBox_15.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_15.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_15.setFont(new Font("Arial", Font.BOLD, 14));
-        chckbxNewCheckBox_15.setBounds(561, 507, 184, 21);
+        chckbxNewCheckBox_15.setBounds(526, 416, 150, 21);
         contentPane.add(chckbxNewCheckBox_15);
         
-        JCheckBox chckbxNewCheckBox_16 = new JCheckBox("T-eko makinen piezak");
+        chckbxNewCheckBox_16 = new JCheckBox("Zubia");
+        chckbxNewCheckBox_16.setFont(new Font("Arial", Font.BOLD, 12));
         chckbxNewCheckBox_16.setBackground(SystemColor.activeCaption);
-        chckbxNewCheckBox_16.setFont(new Font("Arial", Font.BOLD, 14));
-        chckbxNewCheckBox_16.setBounds(561, 542, 190, 21);
+        chckbxNewCheckBox_16.setBounds(526, 439, 150, 21);
         contentPane.add(chckbxNewCheckBox_16);
         
-       
+        chckbxNewCheckBox_17 = new JCheckBox("Erreminta etxearen ardatza");
+        chckbxNewCheckBox_17.setFont(new Font("Arial", Font.BOLD, 12));
+        chckbxNewCheckBox_17.setBackground(SystemColor.activeCaption);
+        chckbxNewCheckBox_17.setBounds(526, 462, 189, 21);
+        contentPane.add(chckbxNewCheckBox_17);
+        
+        chckbxNewCheckBox_18 = new JCheckBox("Mentsula");
+        chckbxNewCheckBox_18.setFont(new Font("Arial", Font.BOLD, 12));
+        chckbxNewCheckBox_18.setBackground(SystemColor.activeCaption);
+        chckbxNewCheckBox_18.setBounds(526, 485, 150, 21);
+        contentPane.add(chckbxNewCheckBox_18);
+        
+        chckbxNewCheckBox_19 = new JCheckBox("Orga mahai etxea");
+        chckbxNewCheckBox_19.setFont(new Font("Arial", Font.BOLD, 12));
+        chckbxNewCheckBox_19.setBackground(SystemColor.activeCaption);
+        chckbxNewCheckBox_19.setBounds(526, 508, 150, 21);
+        contentPane.add(chckbxNewCheckBox_19);
+        
+        chckbxNewCheckBox_20 = new JCheckBox("Mahaia");
+        chckbxNewCheckBox_20.setFont(new Font("Arial", Font.BOLD, 12));
+        chckbxNewCheckBox_20.setBackground(SystemColor.activeCaption);
+        chckbxNewCheckBox_20.setBounds(717, 416, 150, 21);
+        contentPane.add(chckbxNewCheckBox_20);
+        
+        chckbxNewCheckBox_21 = new JCheckBox("Cnc Kontrola");
+        chckbxNewCheckBox_21.setFont(new Font("Arial", Font.BOLD, 12));
+        chckbxNewCheckBox_21.setBackground(SystemColor.activeCaption);
+        chckbxNewCheckBox_21.setBounds(717, 439, 150, 21);
+        contentPane.add(chckbxNewCheckBox_21);
+        
+        chckbxNewCheckBox_22 = new JCheckBox("Babesa");
+        chckbxNewCheckBox_22.setFont(new Font("Arial", Font.BOLD, 12));
+        chckbxNewCheckBox_22.setBackground(SystemColor.activeCaption);
+        chckbxNewCheckBox_22.setBounds(717, 462, 150, 21);
+        contentPane.add(chckbxNewCheckBox_22);
+
+        JButton btnSave = new JButton("Gorde");
+        btnSave.setBounds(741, 612, 100, 30);
+        contentPane.add(btnSave);
+
         JButton btnNewButton_1 = new JButton("Atzera");
         btnNewButton_1.setBounds(26, 21, 85, 29);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                bat ventanaBat = new bat(); 
-                ventanaBat.setVisible(true); 
-                setVisible(false); 
+                bat ventanaBat = new bat();
+                ventanaBat.setVisible(true);
+                setVisible(false);
             }
         });
         contentPane.add(btnNewButton_1);
-        
 
         btnSave.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -267,14 +328,13 @@ public class makinagehitu extends JFrame {
 
         Connection conn = null;
         PreparedStatement pstmt = null;
+        ResultSet rs = null;
 
         try {
-            
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/praktikakk", "root", "1WMG2023");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erronkaerrekuperazioa", "root", "1WMG2023");
 
-            
             String sql = "INSERT INTO makina (izena, marka, modeloa, kokapena, aktibozenbakia, CEmarka) VALUES (?, ?, ?, ?, ?, ?)";
-            pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, izena);
             pstmt.setString(2, marka);
             pstmt.setString(3, modeloa);
@@ -282,9 +342,60 @@ public class makinagehitu extends JFrame {
             pstmt.setString(5, aktibozenbakia);
             pstmt.setString(6, CEmarka);
 
-            
-            pstmt.executeUpdate();
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                rs = pstmt.getGeneratedKeys();
+                if (rs.next()) {
+                    int makinaId = rs.getInt(1);
+                    saveCheckboxData(makinaId);
+                    saveProductData(makinaId);
+                    saveEquipmentData(makinaId);
+                    saveWasteData(makinaId);
+                    savePartData(makinaId); // Nuevo método para guardar datos de partes
+                    JOptionPane.showMessageDialog(this, "Makina berria ongi gorde da!", "Arrakasta", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Errorea makinarik gordetzean: " + e.getMessage(), "Errorea", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
+    private void saveCheckboxData(int makinaId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erronkaerrekuperazioa", "root", "1WMG2023");
+
+            String sql = "INSERT INTO makinenarriskuak (makina_id_makina, arriskuak_idarriskua) VALUES (?, ?)";
+
+            pstmt = conn.prepareStatement(sql);
+
+            if (chckbxNewCheckBox_3.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 1); // ID 1 de la tabla arriskuak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_4.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 2); // ID 2 de la tabla arriskuak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_5.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 3); // ID 3 de la tabla arriskuak
+                pstmt.executeUpdate();
+            }
+            // Agrega más condiciones para otros checkboxes según sea necesario...
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -295,9 +406,201 @@ public class makinagehitu extends JFrame {
                 e.printStackTrace();
             }
         }
-    
+    }
 
+    private void saveProductData(int makinaId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
 
-   
-	}
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erronkaerrekuperazioa", "root", "1WMG2023");
+
+            String sql = "INSERT INTO makinenproduktukimikoak (makina_id_makina, produktukimikoak_id_produtu) VALUES (?, ?)";
+
+            pstmt = conn.prepareStatement(sql);
+
+            if (chckbxNewCheckBox.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 1); // ID 1 de la tabla produktukimikoak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_1.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 2); // ID 2 de la tabla produktukimikoak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_2.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 3); // ID 3 de la tabla produktukimikoak
+                pstmt.executeUpdate();
+            }
+            // Agrega más condiciones para otros checkboxes según sea necesario...
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void saveEquipmentData(int makinaId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erronkaerrekuperazioa", "root", "1WMG2023");
+
+            String sql = "INSERT INTO makinenekipoak (makina_id_makina, ekipoak_id_ekipoak) VALUES (?, ?)";
+
+            pstmt = conn.prepareStatement(sql);
+
+            if (chckbxNewCheckBox_6.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 1); // ID 1 de la tabla ekipoak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_7.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 2); // ID 2 de la tabla ekipoak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_8.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(3, 3); // ID 3 de la tabla ekipoak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_9.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(4, 4); // ID 4 de la tabla ekipoak
+                pstmt.executeUpdate();
+            }
+            // Agrega más condiciones para otros checkboxes según sea necesario...
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void saveWasteData(int makinaId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erronkaerrekuperazioa", "root", "1WMG2023");
+
+            String sql = "INSERT INTO makinenhondakinak (makina_id_makina, sorrarazitakohondakinak_id_hondakinak) VALUES (?, ?)";
+
+            pstmt = conn.prepareStatement(sql);
+
+            if (chckbxNewCheckBox_10.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 1); // ID 1 de la tabla sorrarazitakohondakinak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_11.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 2); // ID 2 de la tabla sorrarazitakohondakinak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_12.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 3); // ID 3 de la tabla sorrarazitakohondakinak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_13.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 4); // ID 4 de la tabla sorrarazitakohondakinak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_14.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 5); // ID 5 de la tabla sorrarazitakohondakinak
+                pstmt.executeUpdate();
+            }
+            // Agrega más condiciones para otros checkboxes según sea necesario...
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void savePartData(int makinaId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erronkaerrekuperazioa", "root", "1WMG2023");
+
+            String sql = "INSERT INTO makinenatalak (makina_id_makina, atalak_id_atalak) VALUES (?, ?)";
+
+            pstmt = conn.prepareStatement(sql);
+
+            if (chckbxNewCheckBox_15.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 1); // ID 1 de la tabla atalak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_16.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 2); // ID 2 de la tabla atalak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_17.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 3); // ID 3 de la tabla atalak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_18.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 4); // ID 4 de la tabla atalak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_19.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 5); // ID 5 de la tabla atalak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_20.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 6); // ID 6 de la tabla atalak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_21.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 7); // ID 7 de la tabla atalak
+                pstmt.executeUpdate();
+            }
+            if (chckbxNewCheckBox_22.isSelected()) {
+                pstmt.setInt(1, makinaId);
+                pstmt.setInt(2, 8); // ID 8 de la tabla atalak
+                pstmt.executeUpdate();
+            }
+            // Agrega más condiciones para otros checkboxes según sea necesario...
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

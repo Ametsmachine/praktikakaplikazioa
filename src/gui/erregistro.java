@@ -79,9 +79,9 @@ public class erregistro extends JFrame {
         lblNewLabel_1_1.setBounds(186, 174, 91, 22);
         contentPane.add(lblNewLabel_1_1);
 
-        JLabel lblNewLabel_1_2 = new JLabel("NAN:");
+        JLabel lblNewLabel_1_2 = new JLabel("NAN(pasahitza):");
         lblNewLabel_1_2.setFont(new Font("Arial", Font.BOLD, 18));
-        lblNewLabel_1_2.setBounds(197, 240, 91, 22);
+        lblNewLabel_1_2.setBounds(124, 236, 153, 22);
         contentPane.add(lblNewLabel_1_2);
 
         textField = new JTextField();
@@ -105,7 +105,7 @@ public class erregistro extends JFrame {
         String abizena = textField_1.getText();
         String nan = textField_2.getText();
 
-        String dbUrl = "jdbc:mysql://localhost:3306/praktikak";
+        String dbUrl = "jdbc:mysql://localhost:3306/erronkaerrekuperazioa";
         String dbUser = "root";
         String dbPassword = "1WMG2023";
 
